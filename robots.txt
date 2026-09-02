@@ -1,13 +1,11 @@
 # ==============================================================================
 # SAVORY TABLE — Technical SEO Robots File
 # Primary Target Keyword: starbucks egg bites recipe
-# Website: https://savorytable.com
+# Website: https://fmkaka19.github.io/starbucket-eggs-bite/
 # ==============================================================================
 
 User-agent: *
 Allow: /
 
-
-
 # XML Sitemap Location
-Sitemap: https://savorytable.com/sitemap.xml
+Sitemap: https://fmkaka19.github.io/starbucket-eggs-bite/sitemap.xml
