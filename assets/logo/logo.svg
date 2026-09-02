@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" width="240" height="48" fill="none">
+  <!-- Brand Icon -->
+  <g transform="translate(4, 4)">
+    <circle cx="20" cy="20" r="18" fill="#FFF9F0" stroke="#24352A" stroke-width="2"/>
+    <!-- Fork & Sprig motif -->
+    <path d="M15 11V20M18 11V20M21 11V20M15 16H21" stroke="#C96F4A" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M18 20V29" stroke="#C96F4A" stroke-width="2" stroke-linecap="round"/>
+    <path d="M23 18C25 15 27 15 28 17C26 19 24 20 23 18Z" fill="#71806A"/>
+    <path d="M24 22C26 20 28 21 28 23C26 24 24 24 24 22Z" fill="#71806A"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="56" y="27" font-family="'Playfair Display', Georgia, serif" font-size="22" font-weight="700" fill="#24352A" letter-spacing="-0.02em">
+    Savory<tspan fill="#C96F4A">Table</tspan>
+  </text>
+  <text x="56" y="38" font-family="'Inter', sans-serif" font-size="8" font-weight="600" fill="#71806A" letter-spacing="0.18em">
+    HOMEMADE RECIPES
+  </text>
+</svg>
