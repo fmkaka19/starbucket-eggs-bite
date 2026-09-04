@@ -123,10 +123,13 @@ document.addEventListener('DOMContentLoaded', () => {
   renderLatestRecipes();
 });
 
-// ==========================================================================
-// 3. Dynamic Recipe Card Component Renderer
-// ==========================================================================
+function getRecipeHref(slug) {
+  if (slug === 'starbucks-egg-bites') return '#featured-recipe-heading';
+  return '#popular-recipes';
+}
+
 function createRecipeCardHTML(recipe) {
+  const targetHref = getRecipeHref(recipe.slug);
   return `
     <article class="recipe-card" data-id="${recipe.id}">
       <div class="recipe-card-image">
@@ -135,7 +138,7 @@ function createRecipeCardHTML(recipe) {
       </div>
       <div class="recipe-card-body">
         <h3 class="recipe-card-title">
-          <a href="recipes/${recipe.slug}.html">${recipe.title}</a>
+          <a href="${targetHref}">${recipe.title}</a>
         </h3>
         <p class="recipe-card-desc">${recipe.description}</p>
         <div class="recipe-card-footer">
@@ -146,7 +149,7 @@ function createRecipeCardHTML(recipe) {
             </svg>
             ${recipe.totalTime}
           </span>
-          <a href="recipes/${recipe.slug}.html" class="btn-link" aria-label="View ${recipe.title} recipe">View Recipe &rarr;</a>
+          <a href="${targetHref}" class="btn-link" aria-label="View ${recipe.title} recipe">View Recipe &rarr;</a>
         </div>
       </div>
     </article>
@@ -218,6 +221,9 @@ function initMobileMenu() {
   if (closeBtn) closeBtn.addEventListener('click', closeMenu);
   overlay.addEventListener('click', closeMenu);
 
+  const drawerLinks = drawer.querySelectorAll('a');
+  drawerLinks.forEach(link => link.addEventListener('click', closeMenu));
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && drawer.classList.contains('active')) {
       closeMenu();
@@ -283,7 +289,7 @@ function initLiveSearch() {
     }
 
     searchResultsArea.innerHTML = matches.map(r => `
-      <a href="recipes/${r.slug}.html" class="search-result-item">
+      <a href="${getRecipeHref(r.slug)}" class="search-result-item">
         <img src="${r.image}" alt="${r.title}" class="search-result-thumb">
         <div class="search-result-info">
           <h4>${r.title}</h4>
@@ -291,6 +297,12 @@ function initLiveSearch() {
         </div>
       </a>
     `).join('');
+  });
+
+  searchResultsArea.addEventListener('click', (e) => {
+    if (e.target.closest('.search-result-item')) {
+      closeSearchModal();
+    }
   });
 
   document.addEventListener('keydown', (e) => {
